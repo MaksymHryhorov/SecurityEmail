@@ -8,8 +8,8 @@ import java.util.Optional;
 
 @Repository
 @Transactional(readOnly = true)
-public interface AppUserRepository extends JpaRepository<AppUser, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
-    Optional<AppUser> findByEmail(String email);
+    Optional<User> findByEmail(String email);
 
 }

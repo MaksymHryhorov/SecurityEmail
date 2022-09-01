@@ -11,32 +11,32 @@ import java.util.UUID;
 
 @Service
 @AllArgsConstructor
-public class AppUserService implements UserDetailsService {
+public class UserService implements UserDetailsService {
 
     private static final String USER_NOT_FIND_MSG = "user with email %s not found";
 
-    private final AppUserRepository appUserRepository;
+    private final UserRepository userRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return appUserRepository.findByEmail(email)
+        return userRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException(String.format(USER_NOT_FIND_MSG, email)));
     }
 
-    public String singUpUser(AppUser appUser) {
-        boolean userExists = appUserRepository.findByEmail(appUser.getEmail())
+    public String singUpUser(User user) {
+        boolean userExists = userRepository.findByEmail(user.getEmail())
                 .isPresent();
 
         if (userExists) {
             throw new IllegalStateException("Email already exists");
         }
 
-        String encodingPassword = bCryptPasswordEncoder.encode(appUser.getPassword());
+        String encodingPassword = bCryptPasswordEncoder.encode(user.getPassword());
 
-        appUser.setPassword(encodingPassword);
+        user.setPassword(encodingPassword);
 
-        appUserRepository.save(appUser);
+        userRepository.save(user);
 
         String token = UUID.randomUUID().toString();
 

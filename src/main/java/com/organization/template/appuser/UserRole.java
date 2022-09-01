@@ -1,5 +1,5 @@
 package com.organization.template.appuser;
 
-public enum AppUserRole {
+public enum UserRole {
     USER, ADMIN
 }
