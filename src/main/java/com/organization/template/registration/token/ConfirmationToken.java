@@ -1,6 +1,6 @@
 package com.organization.template.registration.token;
 
-import com.organization.template.appuser.User;
+import com.organization.template.user.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

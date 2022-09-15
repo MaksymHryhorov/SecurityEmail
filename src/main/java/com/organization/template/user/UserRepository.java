@@ -1,4 +1,4 @@
-package com.organization.template.appuser;
+package com.organization.template.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -14,6 +14,11 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     Optional<User> findByEmail(String email);
 
+    /**
+     * Check if user confirm auth link -> update enable status
+     * @param email
+     * @return
+     */
     @Transactional
     @Modifying
     @Query("UPDATE User a " +
