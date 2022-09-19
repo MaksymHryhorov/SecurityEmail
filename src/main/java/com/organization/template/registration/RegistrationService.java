@@ -84,7 +84,7 @@ public class RegistrationService {
      * @return html file with letter template
      */
     @SneakyThrows
-    private String buildEmail(String name, String link) {
+    public String buildEmail(String name, String link) {
         Path filePath = Path.of("D:\\Projects\\template\\src\\main\\resources\\templates\\email.html");
 
         String content = Files.readString(filePath);
