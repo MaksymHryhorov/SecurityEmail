@@ -1,5 +1,7 @@
-package com.organization.template.registration.token;
+package com.organization.template.registration.token.service;
 
+import com.organization.template.registration.token.model.ConfirmationToken;
+import com.organization.template.registration.token.dao.ConfirmationTokenRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

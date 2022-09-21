@@ -1,9 +1,10 @@
-package com.organization.template.registration;
+package com.organization.template.registration.model;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
+import org.springframework.validation.annotation.Validated;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
@@ -13,6 +14,7 @@ import javax.validation.constraints.Size;
 @AllArgsConstructor
 @EqualsAndHashCode
 @ToString
+@Validated
 public class RegistrationRequest {
 
     @NotNull(message = "First Name can not be null")

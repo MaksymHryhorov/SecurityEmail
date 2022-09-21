@@ -1,4 +1,4 @@
-package com.organization.template.user;
+package com.organization.template.user.model;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

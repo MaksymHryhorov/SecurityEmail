@@ -1,11 +1,12 @@
-package com.organization.template.registration;
+package com.organization.template.registration.service;
 
-import com.organization.template.user.User;
-import com.organization.template.user.UserRole;
-import com.organization.template.user.UserService;
+import com.organization.template.registration.model.RegistrationRequest;
+import com.organization.template.user.model.User;
+import com.organization.template.user.model.UserRole;
+import com.organization.template.user.service.UserService;
 import com.organization.template.email.EmailSender;
-import com.organization.template.registration.token.ConfirmationToken;
-import com.organization.template.registration.token.ConfirmationTokenService;
+import com.organization.template.registration.token.model.ConfirmationToken;
+import com.organization.template.registration.token.service.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,9 @@
-package com.organization.template.user;
+package com.organization.template.user.service;
 
-import com.organization.template.registration.token.ConfirmationToken;
-import com.organization.template.registration.token.ConfirmationTokenService;
+import com.organization.template.registration.token.model.ConfirmationToken;
+import com.organization.template.registration.token.service.ConfirmationTokenService;
+import com.organization.template.user.dao.UserRepository;
+import com.organization.template.user.model.User;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

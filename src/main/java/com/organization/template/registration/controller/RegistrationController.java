@@ -1,15 +1,12 @@
-package com.organization.template.registration;
+package com.organization.template.registration.controller;
 
+import com.organization.template.registration.model.RegistrationRequest;
+import com.organization.template.registration.service.RegistrationService;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.HashMap;
-import java.util.Map;
 
 @RestController
 @RequestMapping(path = "product/registration")
@@ -27,19 +24,6 @@ public class RegistrationController {
     @PostMapping
     public String register(@Valid @RequestBody RegistrationRequest request) {
         return registrationService.register(request);
-    }
-
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public Map<String, String> handleValidatorException(MethodArgumentNotValidException exception) {
-        Map<String, String> errors = new HashMap<>();
-        exception.getBindingResult().getAllErrors().forEach((error -> {
-            String fieldName = ((FieldError) error).getField();
-            String errorMessage = error.getDefaultMessage();
-            errors.put(fieldName, errorMessage);
-        }));
-
-        return errors;
     }
 
     /**
